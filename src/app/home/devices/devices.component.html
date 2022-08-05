@@ -1,0 +1,47 @@
+<div class="device-container">
+  <div class="device-button-container">
+    <button mat-raised-button (click)="openDialog()">
+      Add device
+    </button>
+  </div>
+  <!-- (click)="addData()" -->
+
+  <table mat-table [dataSource]="devices" class="mat-elevation-z8 device-table">
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef style="width: 15%;">ID</th>
+      <td mat-cell *matCellDef="let element" style="width: 15%;">{{element.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="color">
+      <th mat-header-cell *matHeaderCellDef style="width: 25%;">Color</th>
+      <td mat-cell *matCellDef="let element" style="width: 25%;">{{element.color}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="partNumber">
+      <th mat-header-cell *matHeaderCellDef style="width: 25%;">Name</th>
+      <td mat-cell *matCellDef="let element" style="width: 25%;">{{element.partNumber}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef style="width: 30%;">Name</th>
+      <td mat-cell *matCellDef="let element" style="width: 30%;">{{element?.category?.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="delete(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+

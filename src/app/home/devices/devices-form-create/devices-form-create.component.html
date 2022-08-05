@@ -1,0 +1,40 @@
+<div mat-dialog-content>
+  <form [formGroup]="deviceForm">
+    <p>Create a new device</p>
+    <mat-form-field appearance="outline" color="accent" required>
+      <mat-label>Color</mat-label>
+      <input matInput formControlName="color" pattern="[a-zA-Z ]*" maxLength="16">
+      <mat-error *ngIf="deviceForm.get('color')?.hasError('required')">
+        Color is required
+      </mat-error>
+      <mat-error *ngIf="deviceForm.get('color')?.hasError('pattern')">
+        Only Letters
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent" required>
+      <mat-label>partNumber</mat-label>
+      <input matInput formControlName="partNumber" pattern="[0-9]*" maxLength="9">
+      <mat-error *ngIf="deviceForm.get('partNumber')?.hasError('required')">
+        partNumber is required
+      </mat-error>
+      <mat-error *ngIf="deviceForm.get('partNumber')?.hasError('pattern')">
+        Only Numbers
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent" required>
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="categoryId" name="food">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="deviceForm.get('categoryId')?.hasError('required')">
+        Category is required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button (click)="onNoClick()" color="warn">Cancel</button>
+  <button mat-raised-button (click)="onSave(deviceForm.value)" [disabled]="!!deviceForm.get('partNumber')?.errors || !!deviceForm.get('color')?.errors || !!deviceForm.get('categoryId')?.errors" color="primary">Save</button>
+</div>
