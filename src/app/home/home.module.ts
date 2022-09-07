@@ -12,25 +12,23 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSortModule} from '@angular/material/sort';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { CategoriesComponent } from './categories/categories.component';
-import { DevicesComponent } from './devices/devices.component';
-import { CategoriesFormComponent } from './categories/categories-form/categories-form.component';
-import { DevicesFormCreateComponent } from './devices/devices-form-create/devices-form-create.component';
+import { SearchFormComponent } from './search-form/search-form.component';
+import { EventsTableComponent } from './events-table/events-table.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    CategoriesComponent,
-    DevicesComponent,
-    CategoriesFormComponent,
-    DevicesFormCreateComponent
+    SearchFormComponent,
+    EventsTableComponent
   ],
   imports: [
     MatSelectModule,
+    MatSortModule,
     MatInputModule,
     MatTableModule,
     MatDialogModule,

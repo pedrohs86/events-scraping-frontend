@@ -1,0 +1,14 @@
+version: '3.3'
+
+services:
+  frontend:
+    restart: always
+    image: events-scraping-frontend:prod
+    container_name: events-scraping-frontend-prod
+    ports:
+      - 4200:4200
+
+networks:
+  default:
+    external:
+      name: events-scraping-prod

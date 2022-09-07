@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "device-management-frontend": {
+    "events-scraping-frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/device-management-frontend",
+            "outputPath": "dist/events-scraping-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -37,7 +37,7 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "prod": {
               "budgets": [
                 {
                   "type": "initial",
@@ -65,18 +65,42 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "dev": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.dev.ts"
+                }
+              ],
+              "outputHashing": "all"
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "prod"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "browserTarget": "device-management-frontend:build:production"
+            "prod": {
+              "browserTarget": "events-scraping-frontend:build:prod"
+            },
+            "dev": {
+              "browserTarget": "events-scraping-frontend:build:dev"
             },
             "development": {
-              "browserTarget": "device-management-frontend:build:development"
+              "browserTarget": "events-scraping-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +108,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "device-management-frontend:build"
+            "browserTarget": "events-scraping-frontend:build"
           }
         },
         "test": {
@@ -109,5 +133,5 @@
       }
     }
   },
-  "defaultProject": "device-management-frontend"
+  "defaultProject": "events-scraping-frontend"
 }
