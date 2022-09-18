@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventModel } from '../models/event';
+import { HomeService } from './home.service'
 
 @Component({
   templateUrl: './home.component.html',
@@ -7,21 +8,20 @@ import { EventModel } from '../models/event';
 })
 export class HomeComponent implements OnInit {
 
-  events: EventModel[] = [{
-    date: new Date(),
-    local: 'Manaus',
-    name: 'teste1',
-    categoria: 'teste',
-  }, {
-    date: new Date(),
-    local: 'SP',
-    name: 'teste2',
-    categoria: 'teste',
-  }];
-  
-  constructor() { }
+  events: EventModel[] = [];
+
+  constructor(
+    private homeService: HomeService,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  search(categoria: string): void {
+      this.homeService.search(categoria).subscribe({
+        next: (response) => this.events = response,
+        error: (e) => console.error(e),
+      })  
   }
 
 }

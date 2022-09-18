@@ -3,8 +3,8 @@
     <span>Events Scrapping</span>
   </mat-toolbar>
   <div style="padding: 0 16px;">
-    <app-search-form></app-search-form>
-    <app-events-table [events]="events"></app-events-table>>
+    <app-search-form (categoria)="search($event)"></app-search-form>
+    <app-events-table [events]="events"></app-events-table>
   </div>
 </div>
 

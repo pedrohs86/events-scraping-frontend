@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { EventModel } from '../../models/event';
-import { SearchService } from './search-form.service';
 
 @Component({
   selector: 'app-search-form',
@@ -12,14 +11,14 @@ export class SearchFormComponent implements OnInit {
 
   events: EventModel[] = [];
   searchForm!: FormGroup;
+  @Output() categoria: EventEmitter<string> = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
-    private searchService: SearchService,
   ) { }
 
   onSearch(search: any): void {
-    console.log(search)
+    this.categoria.emit(search.category);
   }
 
   ngOnInit(): void {
