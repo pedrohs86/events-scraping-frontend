@@ -1,9 +1,9 @@
 <div class="form-container-search">
-  <form [formGroup]="searchForm" style="height: 60px;">
+  <form [formGroup]="searchForm" style="height: 60px;"  (keydown)="enterSubmit($event)">
     <mat-form-field appearance="outline" color="accent" required style="width: 500px;">
       <mat-label>Search for category</mat-label>
       <input matInput formControlName="category" maxLength="16" style="color: white;">
-      <button style="color: #FFF;" mat-button *ngIf="searchForm.get('category')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchForm.get('category')?.setValue('')">
+      <button style="color: #FFF;" mat-button *ngIf="searchForm.get('category')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="clear($event)">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
@@ -12,7 +12,7 @@
   <button 
     mat-raised-button 
     style=" height: 50px;"
-    (click)="onSearch(searchForm.value)" 
+    (click)="onSearch(searchForm.value)"
     [disabled]="!searchForm.get('category')?.value" 
     color="primary"> Save</button>
 </div>

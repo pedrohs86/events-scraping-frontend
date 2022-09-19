@@ -18,6 +18,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { EventsTableComponent } from './events-table/events-table.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { EventsTableComponent } from './events-table/events-table.component';
   ],
   imports: [
     MatSelectModule,
+    MatPaginatorModule,
     MatSortModule,
     MatInputModule,
     MatTableModule,

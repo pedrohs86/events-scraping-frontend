@@ -26,4 +26,18 @@ export class SearchFormComponent implements OnInit {
       category: [''],
     });
   }
+
+  clear(event: any) {
+      const type = event.pointerType;
+      if(type === 'mouse') {
+        this.searchForm.get('category')?.setValue('')
+      }
+    } 
+
+  enterSubmit(event: any) {
+    if (event.keyCode === 13) {
+      this.categoria.emit(this.searchForm.get('category')?.value);
+    }
+  }
+
 }
