@@ -1,4 +1,119 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
 
-html, body { height: 100%; background-color: #212121;}
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$evenlook-primary-palette: (
+  50 : #e3f2ff,
+  100 : #bbdfff,
+  200 : #8ecbff,
+  300 : #5cb7ff,
+  400 : #32a6ff,
+  500 : #0096ff,
+  600 : #1787ff,
+  700 : #2074f1,
+  800 : #2462de,
+  900 : #2740bf,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$evenlook-accent-palette: (
+  50 : #e0f6f7,
+  100 : #afe9e9,
+  200 : #75dcdb,
+  300 : #19cdca,
+  400 : #00c0bc,
+  500 : #00b3ab,
+  600 : #00a59c,
+  700 : #00948a,
+  800 : #008379,
+  900 : #00665a,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$evenlook-primary: mat-palette($evenlook-primary-palette, 800);
+$evenlook-accent:  mat-palette($evenlook-accent-palette, 300);
+
+// The warn palette is optional (defaults to red).
+$evenlook-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$evenlook-theme: mat-light-theme($evenlook-primary, $evenlook-accent, $evenlook-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($evenlook-theme);
+
+html, body { height: 100%; background-color: #FFFFFF;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #19CDCA;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end {
+  border-radius: 0 54px 54px 0 !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-radius: 54px 0 0 54px !important;
+  min-width: 30px !important;
+}
+
+.mat-form-field-label {
+  color: rgba(14, 28, 28, 0.3);
+}
+
+.mat-form-field.mat-accent .mat-input-element {
+  color: #2461DE;
+}
+
+.mat-form-field-infix {
+ border-top: 0em solid transparent !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-suffix {
+  top: 0.5em !important;
+}
+
+.mat-card-content {
+  margin-bottom: 0 !important;
+}

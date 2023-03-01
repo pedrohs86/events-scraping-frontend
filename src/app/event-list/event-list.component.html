@@ -1,0 +1,19 @@
+
+<div class="main-container" style="padding: 30px">
+    <div class="sub-container">
+      <a [routerLink]="['']" style="min-width: 15vw;">
+        <picture>
+          <source media='(min-width:0px)' srcset="../../assets/img/logoSVG.svg">
+          <img mat-card-image src="" alt="Logo EvenLook" style="max-width: 15vw; max-height: 5vh;">
+        </picture>
+      </a>
+      <app-search-form [hiddenButton]="true" (searchEmit)="redirectSearch($event)" [maxHeight]="'60px'"></app-search-form>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; flex-flow: column; width: 100%;">
+      <div class="card-container">
+        <ap-event *ngFor="let event of events" [event]="event"></ap-event>
+      </div>
+    </div>
+</div>
+  
+  

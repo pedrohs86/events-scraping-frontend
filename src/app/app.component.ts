@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter, map, switchMap } from 'rxjs';
+import {MatIconRegistry} from '@angular/material/icon';
+import {DomSanitizer} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +14,11 @@ export class AppComponent {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private titleService: Title) {
-
+    private titleService: Title,
+    iconRegistry: MatIconRegistry, 
+    sanitizer: DomSanitizer) {
+      iconRegistry.addSvgIcon('lupa', sanitizer.bypassSecurityTrustResourceUrl('../assets/icon/lupa.svg'));
+      iconRegistry.addSvgIcon('redirect', sanitizer.bypassSecurityTrustResourceUrl('../assets/icon/redirect.svg'));
     }
 
     ngOnInit(): void {
@@ -25,6 +30,6 @@ export class AppComponent {
             return route;
           }))
           .pipe(switchMap(route => route.data))
-          .subscribe(event => this.titleService.setTitle(event['title']));
+          .subscribe(event => this.titleService.setTitle(!!event['title'] ? event['title'] : 'EvenLook'));
     }
 }

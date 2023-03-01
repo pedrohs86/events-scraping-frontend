@@ -1,10 +1,9 @@
-<div style="margin: 20px; padding: 10px;">
-  <mat-toolbar>
-    <span>Events Scrapping</span>
-  </mat-toolbar>
-  <div style="padding: 0 16px;">
-    <app-search-form (categoria)="search($event)"></app-search-form>
-    <app-events-table [events]="events"></app-events-table>
-  </div>
+
+<div class="main-container">
+  <picture>
+    <source media='(min-width:0px)' srcset="../../assets/img/logoSVG.svg">
+    <img mat-card-image src="" alt="Logo EvenLook" style="max-width: 41vw; max-height: 14vh;">
+  </picture>
+  <app-search-form (searchEmit)="redirectSearch($event)"></app-search-form>
 </div>
 

@@ -3,4 +3,5 @@ export interface EventModel {
     local: string;
     name: string;
     categoria: string;
+    url: string
 }

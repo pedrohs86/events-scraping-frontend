@@ -1,0 +1,15 @@
+<mat-card class="example-card">
+  <div class="container">
+    <mat-card-title class="title">{{eventFix.name}}</mat-card-title>
+    <mat-card-content>
+      <p><b>Data:</b> {{eventFix.date}}</p>
+      <p><b>Local:</b> {{eventFix.local}}</p>
+      <p><b>Categoria:</b> {{eventFix.categoria}}</p>
+    </mat-card-content>
+  </div>
+  <a [href]="eventFix.url" target="_blank" [title]="eventFix.name" style="height: fit-content;">
+    <mat-icon svgIcon="redirect" aria-hidden="false" alt="redirect url"></mat-icon>
+  </a>
+</mat-card>
+  
+  

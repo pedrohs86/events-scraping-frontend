@@ -8,6 +8,7 @@ import { HomeModule } from './home/home.module';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoadingInterceptor } from './shared/services/loading.interceptor';
+import { EventListModule } from './event-list/event-list.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { LoadingInterceptor } from './shared/services/loading.interceptor';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HomeModule
+    HomeModule,
+    EventListModule
   ],
   providers: [ {
     provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true

@@ -1,0 +1,42 @@
+.example-card {
+    max-width: 39vw;
+    min-width: 39vw;
+    background: #FBFFFF;
+    border: 2px solid #19CDCA;
+    border-radius: 14px;
+    max-height: 15vh;
+    min-height: 15vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column;
+    align-items: baseline;
+}
+
+p {
+    margin: 0;
+    color: #2461DE;
+    font-weight: 400;
+    font-size: 0.8rem;
+    line-height: 1rem;
+    letter-spacing: 0.2px;
+}
+
+.title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #2461DE;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 470px;
+}

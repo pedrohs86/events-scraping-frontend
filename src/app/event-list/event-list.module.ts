@@ -13,21 +13,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSortModule} from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
-import { SearchFormComponent } from './search-form/search-form.component';
+import { EventListRoutingModule } from './event-list-routing.module';
+import { EventListComponent } from './event-list.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { EventComponent } from './event/event.component';
+import { HomeModule } from '../home/home.module';
 
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    SearchFormComponent,
+    EventListComponent,
+    EventComponent
   ],
   imports: [
     MatSelectModule,
     MatPaginatorModule,
+    MatCardModule,
     MatSortModule,
     MatInputModule,
     MatTableModule,
@@ -42,10 +45,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HomeRoutingModule
-  ],
-  exports:[
-    SearchFormComponent
+    EventListRoutingModule,
+    HomeModule
   ]
 })
-export class HomeModule { }
+export class EventListModule { }

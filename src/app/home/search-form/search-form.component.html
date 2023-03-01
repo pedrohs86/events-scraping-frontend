@@ -1,18 +1,20 @@
 <div class="form-container-search">
-  <form [formGroup]="searchForm" style="height: 60px;"  (keydown)="enterSubmit($event)">
-    <mat-form-field appearance="outline" color="accent" required style="width: 500px;">
-      <mat-label>Search for category</mat-label>
-      <input matInput formControlName="category" maxLength="16" style="color: white;">
-      <button style="color: #FFF;" mat-button *ngIf="searchForm.get('category')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="clear($event)">
-        <mat-icon>close</mat-icon>
+  <form [formGroup]="searchForm">
+    <mat-form-field appearance="outline" color="accent" required style="width: 63vw; font-size: 1rem;" [ngStyle]="{'max-height': maxHeight}">
+      <span matPrefix>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <input matInput formControlName="searchText" maxLength="16" placeholder="Qual evento você quer ver?">
+      <button mat-button [disabled]="!searchForm.get('searchText')?.value" matSuffix mat-icon-button aria-label="Search" (click)="enterSubmit($event)">
+        <mat-icon svgIcon="lupa" aria-hidden="false"></mat-icon>
       </button>
     </mat-form-field>
   </form>
   
   <button 
     mat-raised-button 
-    style=" height: 50px;"
-    (click)="onSearch(searchForm.value)"
-    [disabled]="!searchForm.get('category')?.value" 
-    color="primary"> Save</button>
+    style="height: 7.4vh; width: 16vw; font-size: 4vh;"
+    class="button"
+    [ngStyle]="{'display': hiddenButton ? 'none' : ''}"
+    (click)="onSearch($event, searchForm.value)"
+    [disabled]="!searchForm.get('searchText')?.value" 
+    color="primary">Pesquisar</button>
 </div>

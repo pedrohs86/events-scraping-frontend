@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EventModel } from '../models/event';
-import { HomeService } from './home.service'
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './home.component.html',
@@ -11,17 +11,14 @@ export class HomeComponent implements OnInit {
   events: EventModel[] = [];
 
   constructor(
-    private homeService: HomeService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
   }
 
-  search(categoria: string): void {
-      this.homeService.search(categoria).subscribe({
-        next: (response) => this.events = response,
-        error: (e) => console.error(e),
-      })  
+  redirectSearch(search: string): void {
+    this.router.navigate(['/results', {search: search}]) 
   }
 
 }
